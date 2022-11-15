@@ -1,10 +1,11 @@
 const sharp = require('sharp')
 const fs = require('fs')
 const path = require('path')
+const jo = require('jpeg-autorotate')
 
 async function main() {
 	const examples = ['Landscape', 'Portrait']
-
+	console.time('Timer')
 	for (const example of examples) {
 		for (let i = 0; i <= 8; i++) {
 			console.log(`Editing image ${example} ${i}`)
@@ -27,8 +28,13 @@ async function main() {
 				.withMetadata()
 				.resize(640, 640, { fit: 'inside' })
 				.toFile(path.join(__dirname, example + '_' + i + '_withMetadata.jpg'))
+				
+			await sharp(rotatedBuffer)
+				.resize(640, 640, { fit: 'inside' })
+				.toFile(path.join(__dirname, example + '_' + i + '.jpg'))
 		}
 	}
+	console.timeEnd('Timer')
 }
 
 main()

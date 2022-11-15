@@ -5,7 +5,7 @@ const path = require('path')
 
 async function main() {
 	const examples = ['Landscape', 'Portrait']
-
+	console.time('Timer')
 	for (const example of examples) {
 		for (let i = 0; i <= 8; i++) {
 			console.log(`Editing image ${example} ${i}`)
@@ -24,6 +24,7 @@ async function main() {
 			jimp.write(path.join(__dirname, example + '_' + i + '.jpg'))
 		}
 	}
+	console.timeEnd('Timer')
 }
 
 main()
