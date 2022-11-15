@@ -1,0 +1,16 @@
+{
+  "name": "image-exif-resize-test-sharp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jpeg-autorotate": "^8.0.1",
+    "sharp": "^0.31.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
